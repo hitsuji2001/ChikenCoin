@@ -1,4 +1,5 @@
 package encode;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -6,10 +7,20 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHA_256 
 {
-	public static byte[] setUp(String input) throws NoSuchAlgorithmException
+	public static byte[] setUp(String input)
 	{
-		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-		return messageDigest.digest(input.getBytes(StandardCharsets.UTF_8));
+		try
+		{
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+			return messageDigest.digest(input.getBytes(StandardCharsets.UTF_8));
+		}
+		catch(NoSuchAlgorithmException exception)
+		{
+			exception.printStackTrace();
+			System.err.println("Can't even copy code right!");
+		}
+		
+		return null;
 	}
 
 	public static String toHexString(byte[] hashCode)
@@ -26,7 +37,7 @@ public class SHA_256
 		return hexString.toString();
 	}
 
-	public static String getSHA256HashCode(String input) throws NoSuchAlgorithmException
+	public static String getSHA256HashCode(String input)
 	{
 		return SHA_256.toHexString(SHA_256.setUp(input));
 	}

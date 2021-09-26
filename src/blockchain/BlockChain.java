@@ -1,5 +1,5 @@
 package blockchain;
-import java.security.NoSuchAlgorithmException;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -28,16 +28,13 @@ public class BlockChain extends Block
         catch(ParseException exception)
         {
             exception.printStackTrace();
-        }
-        catch(NoSuchAlgorithmException exception)
-        {
-            exception.printStackTrace();
+            System.err.println("Not a valid date, how could you manage such thing?");
         }
     }
 
-    public void addBlock()
+    public void addBlock(Block block)
     {
-
+        this.blockChain.add(block);
     }
 
     void alterBlock()
@@ -45,14 +42,18 @@ public class BlockChain extends Block
 
     }
 
-    public void getLatestBlock()
+    public Block getLatestBlock()
     {
-
+       return this.blockChain.get(this.blockChain.size());
     }
 
-    public void getBlockAt(int index)
+    public Block getBlockAt(int index)
     {
-
+        if(index > this.blockChain.size()) throw new IndexOutOfBoundsException();
+        else
+        {
+            return this.blockChain.get(index);
+        }
     }
 
     public ArrayList <Block> getChain()

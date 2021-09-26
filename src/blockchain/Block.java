@@ -1,6 +1,7 @@
 package blockchain;
 
 import assets.ColorText;
+import encode.SHA_256;
 
 public class Block extends Data
 {
@@ -33,7 +34,7 @@ public class Block extends Data
     //Calculate the SHA-256 of the Block
     private String calculateHash()
     {
-        return "";
+        return SHA_256.getSHA256HashCode(this.data.toString());
     }
 
     String getHash()
@@ -49,6 +50,11 @@ public class Block extends Data
     int getHeight()
     {
         return this.height;
+    }
+
+    Data getData()
+    {
+        return this.data;
     }
 
     void setHash(String hashCode)
