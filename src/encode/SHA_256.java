@@ -5,6 +5,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import assets.ColorText;
+
 public class SHA_256 
 {
 	public static byte[] setUp(String input)
@@ -17,7 +19,7 @@ public class SHA_256
 		catch(NoSuchAlgorithmException exception)
 		{
 			exception.printStackTrace();
-			System.err.println("Can't even copy code right!");
+			System.err.println(ColorText.TEXT_RED + "Can't even copy code right!" + ColorText.TEXT_RESET);
 		}
 		
 		return null;

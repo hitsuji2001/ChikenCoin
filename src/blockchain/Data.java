@@ -12,24 +12,24 @@ public class Data
     private String content;
     private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/mm/yyyy");
 
-    Data()
+    public Data()
     {
 
     }
 
-    Data(Data data)
+    public Data(Data data)
     {
         this.timeStamp = data.timeStamp;
         this.content = data.content;
     }
 
-    Data(Date timeStamp, String content)
+    public Data(Date timeStamp, String content)
     {
         this.timeStamp = timeStamp;
         this.content = content;
     }
 
-    Data(String time, String content) throws ParseException
+    public Data(String time, String content) throws ParseException
     {
         this.timeStamp = this.DATE_FORMAT.parse(time);
         this.content = content;
@@ -58,7 +58,7 @@ public class Data
     @Override
     public String toString()
     {
-        return ColorText.TEXT_YELLOW + "Data: " + ColorText.TEXT_RESET + this.getContent() + "\n" +
-               ColorText.TEXT_YELLOW + "Transaction time: " + ColorText.TEXT_RESET + this.getTimeStamp();
+        return ColorText.TEXT_BLUE + "Data: " + ColorText.TEXT_RESET + this.getContent() + "\n" +
+               ColorText.TEXT_BLUE + "Transaction time: " + ColorText.TEXT_RESET + this.DATE_FORMAT.format(this.getTimeStamp());
     }
 }

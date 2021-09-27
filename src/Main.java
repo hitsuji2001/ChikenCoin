@@ -1,15 +1,10 @@
-import blockchain.Block;
-import blockchain.BlockChain;
+import menu.App;
 
 public class Main 
 {
     public static void main(String[] args) 
     {
-        BlockChain blockChain = new BlockChain();
-
-        for(Block b : blockChain.getChain())
-        {
-            System.out.println(b);
-        }
+        App app = new App();
+        app.run();
     }
 }

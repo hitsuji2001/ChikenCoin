@@ -11,24 +11,26 @@ public class Block extends Data
     private String hashCode;
     private String previousHashCode;
 
-    Block()
+    public Block()
     {
         index++;
     }
 
-    Block(Data data)
+    public Block(Data data)
     {
         this.height = index;
         this.data = data;
         this.hashCode = this.calculateHash();
+        index++;
     }
 
-    Block(Data data, String hashCode, String previousHashCode)
+    public Block(Data data, String hashCode, String previousHashCode)
     {
         this.height = index;
         this.data = data;
         this.hashCode = hashCode;
         this.previousHashCode = previousHashCode;
+        index++;
     }
 
     //Calculate the SHA-256 of the Block
@@ -70,9 +72,9 @@ public class Block extends Data
     @Override
     public String toString()
     {
-        return ColorText.TEXT_YELLOW + "Block index: " + ColorText.TEXT_RESET + this.height + "\n"
+        return ColorText.TEXT_BLUE + "Block index: " + ColorText.TEXT_RESET + this.height + "\n"
                 + this.data.toString() + "\n"
-                + ColorText.TEXT_YELLOW + "Block's SHA-256 code: " + ColorText.TEXT_RESET + this.hashCode + "\n"
-                + ColorText.TEXT_YELLOW + "Block's SHA-256 previous code: " + ColorText.TEXT_RESET + this.previousHashCode;
+                + ColorText.TEXT_BLUE + "Block's SHA-256 code: " + ColorText.TEXT_RESET + this.hashCode + "\n"
+                + ColorText.TEXT_BLUE + "Block's SHA-256 previous code: " + ColorText.TEXT_RESET + this.previousHashCode;
     }
 }

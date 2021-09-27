@@ -3,6 +3,7 @@ package blockchain;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+import assets.ColorText;
 import encode.SHA_256;
 
 public class BlockChain extends Block
@@ -28,12 +29,13 @@ public class BlockChain extends Block
         catch(ParseException exception)
         {
             exception.printStackTrace();
-            System.err.println("Not a valid date, how could you manage such thing?");
+            System.err.println(ColorText.TEXT_RED + "Not a valid date, how could you manage such thing?" + ColorText.TEXT_RESET);
         }
     }
 
     public void addBlock(Block block)
     {
+        block.setPreviousHash(this.blockChain.get(this.blockChain.size() - 1).getHash());
         this.blockChain.add(block);
     }
 
@@ -71,6 +73,7 @@ public class BlockChain extends Block
         for(Block b : this.blockChain)
         {
             System.out.println(b);
+            System.out.println("----------------------------------------------------");
         }
     }
 }
