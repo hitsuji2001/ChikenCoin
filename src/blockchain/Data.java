@@ -35,6 +35,12 @@ public class Data
         this.content = content;
     }
 
+    public Data(String content)
+    {
+        this.content = content;
+        this.timeStamp = new Date();
+    }
+
     void setTimeStamp(Date timeStamp)
     {
         this.timeStamp = timeStamp;
@@ -58,7 +64,7 @@ public class Data
     @Override
     public String toString()
     {
-        return ColorText.TEXT_BLUE + "Data: " + ColorText.TEXT_RESET + this.getContent() + "\n" +
-               ColorText.TEXT_BLUE + "Transaction time: " + ColorText.TEXT_RESET + this.DATE_FORMAT.format(this.getTimeStamp());
+        return ColorText.TEXT_BLUE + "Data: " + ColorText.TEXT_RESET + ColorText.TEXT_YELLOW + this.getContent() + ColorText.TEXT_RESET + "\n" +
+               ColorText.TEXT_BLUE + "Transaction time: " + ColorText.TEXT_RESET + this.getTimeStamp();
     }
 }

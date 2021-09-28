@@ -1,0 +1,11 @@
+10
+Trang sent Nam 10 Chicken Coins
+Nam gave Trung 20 Chicken Coins
+Trung sent Quang Anh 30 Chicken Coins
+Quang Anh gave Trang 15 Chicken Coins
+Nam gave Nga 25 Chicken Coins
+Nga gave Trung 15 Chicken Coins
+Trung sent Trang 50 Chicken Coins
+Trang gave Nga 15 Chicken Coins
+Nga gave Quang Anh 2 Chicken Coins
+Quang Anh mined 1 Chicken Coin

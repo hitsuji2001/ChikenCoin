@@ -73,7 +73,7 @@ public class Block extends Data
     public String toString()
     {
         return ColorText.TEXT_BLUE + "Block index: " + ColorText.TEXT_RESET + this.height + "\n"
-                + this.data.toString() + "\n"
+                + ColorText.TEXT_YELLOW + this.data.toString() + ColorText.TEXT_RESET + "\n"
                 + ColorText.TEXT_BLUE + "Block's SHA-256 code: " + ColorText.TEXT_RESET + this.hashCode + "\n"
                 + ColorText.TEXT_BLUE + "Block's SHA-256 previous code: " + ColorText.TEXT_RESET + this.previousHashCode;
     }

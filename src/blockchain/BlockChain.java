@@ -41,7 +41,7 @@ public class BlockChain extends Block
 
     void alterBlock()
     {
-
+        //TODO:
     }
 
     public Block getLatestBlock()

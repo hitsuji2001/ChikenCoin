@@ -77,7 +77,7 @@ public class Menu
             case 3:
                 //TODO: Add alter block function
 
-                System.out.println(ColorText.TEXT_RED + "Not implement yet." + ColorText.TEXT_RESET);
+                System.err.println(ColorText.TEXT_RED + "Not implement yet." + ColorText.TEXT_RESET);
                 
                 System.out.println("Press Enter key to continue...");
                 scanner.nextLine();
@@ -94,7 +94,7 @@ public class Menu
                 break;
             case 5:
                 //TODO: Add function to print block at random index
-                System.out.println(ColorText.TEXT_RED + "Not implement yet." + ColorText.TEXT_RESET);
+                System.err.println(ColorText.TEXT_RED + "Not implement yet." + ColorText.TEXT_RESET);
                 
                 System.out.println("Press Enter key to continue...");
                 scanner.nextLine();
@@ -127,37 +127,21 @@ public class Menu
             case 9:
                 break;
             default:
-                System.out.println("There's only 9 options, what the hell are you doing?");
+                System.err.println("There's only 9 options, what the hell are you doing?");
                 break;
         }
     }
 
     private static void handleAddBlock(Scanner scanner)
     {
-        System.out.println("Please enter the data to encrypt. " + ColorText.TEXT_YELLOW + "follow this form and MUST be written in 1 line:" + ColorText.TEXT_RESET);
-        System.out.println(ColorText.TEXT_GREEN + "Transaction Day (dd/mm/yyyy), Transaction information" + ColorText.TEXT_RESET);
+        System.out.println("Please enter the data to encrypt, " + ColorText.TEXT_YELLOW + "MUST be written in 1 line:" + ColorText.TEXT_RESET);
+        System.out.print(ColorText.TEXT_GREEN + "Transaction information: " + ColorText.TEXT_RESET);
         
-        String[] input = scanner.nextLine().trim().split(",");
+        Data data = new Data(scanner.nextLine().trim());
+        Block block = new Block(data);
 
-        try
-        {
-            Data data = new Data(input[0].trim(), input[1].trim());
-            Block block = new Block(data);
-
-            blockChain.addBlock(block);
-            System.out.println(ColorText.TEXT_GREEN + "Succesfully adding a block into Block Chain!" + ColorText.TEXT_RESET);
-        }
-        catch(ParseException exception)
-        {
-            System.err.println(ColorText.TEXT_RED + "ERROR: Invalid Date" + ColorText.TEXT_RESET);
-            System.out.println("Please enter the information again");
-            Menu.handleAddBlock(scanner);
-        }
-        catch(IndexOutOfBoundsException exception)
-        {
-            System.err.println("Please Enter the information in ONE line");
-            Menu.handleAddBlock(scanner);
-        }
+        blockChain.addBlock(block);
+        System.out.println(ColorText.TEXT_GREEN + "Succesfully adding a block into Block Chain!" + ColorText.TEXT_RESET);
     }
 
     private static void handleAddMultipleBlock(Scanner scanner)
