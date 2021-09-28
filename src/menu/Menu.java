@@ -4,7 +4,6 @@ import blockchain.Block;
 import blockchain.BlockChain;
 import blockchain.Data;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 import assets.ColorText;
