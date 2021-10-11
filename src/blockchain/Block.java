@@ -3,7 +3,7 @@ package blockchain;
 import assets.ColorText;
 import encode.SHA_256;
 
-public class Block extends Data
+public class Block
 {
     private static int index = 0;
     private int height;

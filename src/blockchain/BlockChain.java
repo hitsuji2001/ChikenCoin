@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import assets.ColorText;
 import encode.SHA_256;
 
-public class BlockChain extends Block
+public class BlockChain
 {
     ArrayList <Block> blockChain = new ArrayList<>();
 
@@ -51,7 +51,7 @@ public class BlockChain extends Block
 
     public Block getBlockAt(int index)
     {
-        if(index > this.blockChain.size()) throw new IndexOutOfBoundsException();
+        if(index > this.blockChain.size() || index < 0) throw new IndexOutOfBoundsException();
         else
         {
             return this.blockChain.get(index);
